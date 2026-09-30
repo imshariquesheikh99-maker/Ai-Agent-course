@@ -5,10 +5,11 @@ import asyncio
 import os
 import sys
 import warnings
+from pathlib import Path
 
 import dotenv
 
-dotenv.load_dotenv()
+dotenv.load_dotenv(dotenv_path=Path(__file__).resolve().parents[1] / ".env")
 
 # Suppress asyncio warnings during cleanup
 warnings.filterwarnings("ignore", category=RuntimeWarning, module="asyncio")
