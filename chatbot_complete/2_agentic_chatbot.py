@@ -34,10 +34,9 @@ async def on_message(message: cl.Message):
             and event.data.item.type == "function_call"
             and len(event.data.item.arguments) > 0
         ):
-            tool_name = "thinking..."
+            tool_name = "thinking"
             with cl.Step(name=tool_name, type="tool") as step:
                 step.input = event.data.item.arguments
                 print(f"\nTool call: {tool_name} with args: {event.data.item.arguments}")
-            
 
-    await cl.Message(content="thinking...").send()
+    await cl.Message(content="thinking").send()
