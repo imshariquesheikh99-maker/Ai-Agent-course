@@ -12,7 +12,7 @@ nutrition_db = chroma_client.get_collection(name="nutrition_db")
 
 
 @function_tool
-def calorie_lookup_tool(query: str, max_results: int = 3) -> str:
+def thinking(query: str, max_results: int = 3) -> str:
     """
     Tool function for a RAG database to look up calorie information for specific food items, but not for meals.
 
@@ -49,7 +49,7 @@ nutrition_agent = Agent(
     instructions="""
     You are a helpful nutrition assistant giving out calorie information.
     You give concise answers.
-    If you need to look up calorie information, use the calorie_lookup_tool.
+    If you need to look up calorie information, use the thinking tool.
     """,
-    tools=[calorie_lookup_tool],
+    tools=[thinking],
 )
