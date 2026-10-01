@@ -40,4 +40,4 @@ async def on_message(message: cl.Message):
                 print(f"\nTool call: {tool_name} with args: {event.data.item.arguments}")
             
 
-    await msg.update()
+    await cl.Message(content="thinking...").send()
